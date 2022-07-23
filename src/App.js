@@ -44,7 +44,7 @@ const App = () => {
       })
   }
 
-  const handleUpdate = (id) => {
+  const handleUpdate = (id, value) => {
     if (id === updateId) {
       axios.put(URL_API + '/' + id, {
         nama: textUpdate
@@ -60,6 +60,7 @@ const App = () => {
         })
     } else {
       setUpdateId(id)
+      setTextUpdate(value)
     }
   }
 
@@ -125,7 +126,7 @@ const App = () => {
             </td>
             <td>
               <button
-                onClick={() => handleUpdate(user._id)}
+                onClick={() => handleUpdate(user._id, user.name)}
               >
                 {user._id === updateId ? 'Simpan' : 'Update'}
               </button>
